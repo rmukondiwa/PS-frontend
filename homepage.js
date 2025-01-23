@@ -62,7 +62,7 @@ const HomePage = () => {
         <TouchableOpacity onPress={() => navigation.navigate('MatchesPage')}>
             <Text style={styles.navIcon}>👥</Text>
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('ProfilePage')}>
           <Text style={styles.navIcon}>👤</Text>
         </TouchableOpacity>
       </View>

@@ -1,9 +1,12 @@
+import { Picker } from '@react-native-picker/picker'; // Import Picker for dropdown
 import React, { useState } from 'react';
 import { Alert, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native';
 
 const PostSignUp2Screen = ({ navigation }) => {
   const [places, setPlaces] = useState('');
   const [selectedTags, setSelectedTags] = useState([]);
+  const [height, setHeight] = useState('');
+  const [year, setYear] = useState('');
 
   const hashtags = [
     'Scuba Diving',
@@ -27,18 +30,16 @@ const PostSignUp2Screen = ({ navigation }) => {
   };
 
   const handleNext = () => {
-    if (selectedTags.length === 0 || !places) {
-      Alert.alert('Error', 'Please select at least one interest and list the places you frequent.');
+    if (!height || !year || selectedTags.length === 0 || !places) {
+      Alert.alert('Error', 'Please fill out all fields before proceeding.');
       return;
     }
     navigation.navigate('HomePage');
-    // Navigate to the next screen or finish flow
-    // navigation.navigate('FinalStep'); // Uncomment if there's another step
   };
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>What Are You Interested In?</Text>
+      <Text style={styles.title}>Tell Us More About You</Text>
       <Text style={styles.subtitle}>Tap to select your interests:</Text>
 
       {/* Hashtags */}
@@ -56,10 +57,37 @@ const PostSignUp2Screen = ({ navigation }) => {
         ))}
       </View>
 
+      {/* Height Input */}
+      <TextInput
+        style={styles.input}
+        placeholder="'Enter your height (e.g., 5\'10')"
+        value={height}
+        onChangeText={setHeight}
+        keyboardType="default"
+      />
+
+      {/* Year Picker */}
+      <View style={styles.pickerContainer}>
+        <Text style={styles.pickerLabel}>Select your year (if in college):</Text>
+        <Picker
+          selectedValue={year}
+          onValueChange={(itemValue) => setYear(itemValue)}
+          style={styles.picker}
+        >
+          <Picker.Item label="Select your year" value="" />
+          <Picker.Item label="Freshman" value="Freshman" />
+          <Picker.Item label="Sophomore" value="Sophomore" />
+          <Picker.Item label="Junior" value="Junior" />
+          <Picker.Item label="Senior" value="Senior" />
+          <Picker.Item label="Graduate" value="Graduate" />
+          <Picker.Item label="Not in College" value="Not in College" />
+        </Picker>
+      </View>
+
       {/* Places Text Box */}
       <TextInput
         style={styles.input}
-        placeholder="Places you frequent (e.g., coffee shops, gyms, parks)"
+        placeholder="Places you frequent (e.g., coffee shops, gyms)"
         value={places}
         onChangeText={setPlaces}
       />
@@ -129,6 +157,22 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     fontSize: 16,
     marginBottom: 20,
+  },
+  pickerContainer: {
+    marginBottom: 20,
+  },
+  pickerLabel: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 5,
+    color: '#2F4F4F',
+  },
+  picker: {
+    height: 50,
+    borderWidth: 1,
+    borderColor: '#ccc',
+    borderRadius: 10,
+    backgroundColor: '#fff',
   },
   nextButton: {
     backgroundColor: '#FFD700',

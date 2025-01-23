@@ -6,6 +6,7 @@ import HomePage from './homepage'; // Import homepage.js
 import MatchesPage from './matchesPage'; // Import MatchesPage
 import PostSignUpScreen from './postSignUp'; // Import PostSignUpScreen
 import PostSignUp2Screen from './postSignUp2'; // Import PostSignUp2Screen
+import ProfilePage from './profilePage'; // Import ProfilePage
 import LogInScreen from './signIn'; // Import LogInScreen from the new file
 import SignUpScreen from './signUp'; // Import SignUpScreen from the new file
 
@@ -14,7 +15,7 @@ const Stack = createStackNavigator();
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.welcomeText}>Welcome to ...</Text>
+      <Text style={styles.welcomeText}>Welcome to Happy Accidents!</Text>
       <Text style={styles.subtitle}>
         fostering genuine, authentic friendships and relationships
       </Text>
@@ -47,6 +48,7 @@ export default function App() {
         <Stack.Screen name="PostSignUp2" component={PostSignUp2Screen} />
         <Stack.Screen name="HomePage" component={HomePage} />
         <Stack.Screen name="MatchesPage" component={MatchesPage} />
+        <Stack.Screen name="ProfilePage" component={ProfilePage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
