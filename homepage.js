@@ -1,6 +1,7 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
+import BottomNavigation from './BottomNavigation'; // Import the navigation bar
 
 const HomePage = () => {
   const navigation = useNavigation(); // Access navigation prop
@@ -54,18 +55,8 @@ const HomePage = () => {
         </View>
       </ScrollView>
 
-      {/* Fixed Bottom Navigation */}
-      <View style={styles.bottomNavigation}>
-        <TouchableOpacity>
-          <Text style={styles.navIcon}>🔗</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('MatchesPage')}>
-            <Text style={styles.navIcon}>👥</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={() => navigation.navigate('ProfilePage')}>
-          <Text style={styles.navIcon}>👤</Text>
-        </TouchableOpacity>
-      </View>
+      {/* Add Bottom Navigation */}
+      <BottomNavigation />
     </View>
   );
 };
@@ -75,7 +66,7 @@ export default HomePage;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#A4D4AE', // Light green background
+    backgroundColor: '#6fd08c', // Light green background
   },
   scrollView: {
     flex: 1,

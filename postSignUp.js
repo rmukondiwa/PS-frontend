@@ -49,13 +49,13 @@ const PostSignUpScreen = ({ navigation }) => {
           style={[styles.intentButton, intent === 'relationship' && styles.selectedButton]}
           onPress={() => setIntent('relationship')}
         >
-          <Text style={styles.intentText}>Relationship</Text>
+          <Text style={styles.intentText}>S/O</Text>
         </TouchableOpacity>
         <TouchableOpacity
           style={[styles.intentButton, intent === 'idk yet' && styles.selectedButton]}
           onPress={() => setIntent('idk yet')}
         >
-          <Text style={styles.intentText}>IDK Yet</Text>
+          <Text style={styles.intentText}>IDK</Text>
         </TouchableOpacity>
       </View>
 

@@ -20,7 +20,7 @@ const SignUpScreen = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Sign Up</Text>
+      <Text style={styles.title}>Create an Account</Text>
 
       {/* Input Fields */}
       <TextInput
@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#ECE635',
+    backgroundColor: '#3ab2da',
     padding: 20,
   },
   title: {

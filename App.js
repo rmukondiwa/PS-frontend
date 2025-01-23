@@ -1,7 +1,7 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import HomePage from './homepage'; // Import homepage.js
 import MatchesPage from './matchesPage'; // Import MatchesPage
 import PostSignUpScreen from './postSignUp'; // Import PostSignUpScreen
@@ -9,12 +9,19 @@ import PostSignUp2Screen from './postSignUp2'; // Import PostSignUp2Screen
 import ProfilePage from './profilePage'; // Import ProfilePage
 import LogInScreen from './signIn'; // Import LogInScreen from the new file
 import SignUpScreen from './signUp'; // Import SignUpScreen from the new file
+import YourMatches from './yourMatches'; // Import the SVG component
 
 const Stack = createStackNavigator();
 
 const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
+      {/* Add the Image Here */}
+      <Image
+        source={require('./images/icon.png')} // Path to your image
+        style={styles.image}
+      />
+
       <Text style={styles.welcomeText}>Welcome to Happy Accidents!</Text>
       <Text style={styles.subtitle}>
         fostering genuine, authentic friendships and relationships
@@ -49,6 +56,7 @@ export default function App() {
         <Stack.Screen name="HomePage" component={HomePage} />
         <Stack.Screen name="MatchesPage" component={MatchesPage} />
         <Stack.Screen name="ProfilePage" component={ProfilePage} />
+        <Stack.Screen name="YourMatches" component={YourMatches} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -59,7 +67,12 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#ECE635',
+    backgroundColor: '#3ab2da',
+  },
+  image: {
+    width: 100, // Adjust the width of the image
+    height: 100, // Adjust the height of the image
+    marginBottom: 20, // Add some spacing below the image
   },
   welcomeText: {
     fontSize: 24,

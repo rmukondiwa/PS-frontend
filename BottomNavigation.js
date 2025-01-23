@@ -1,6 +1,10 @@
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
+import HomeIcon from './HomeIcon'; // Import the SVG component
+import LikeIcon from './LikeIcon'; // Import the SVG component
+import LinkIcon from './LinkIcon'; // Import the SVG component
+import ProfileIcon from './ProfileIcon'; // Import the SVG component
 
 const BottomNavigation = () => {
   const navigation = useNavigation();
@@ -8,19 +12,21 @@ const BottomNavigation = () => {
   return (
     <View style={styles.navContainer}>
       <TouchableOpacity onPress={() => navigation.navigate('HomePage')}>
-        <Text style={styles.navIcon}>🔗</Text>
+        <HomeIcon width={30} height={30} fill="#000" />
+      </TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('YourMatches')}>
+        <LikeIcon width={50} height={30} fill="#000" />
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate('MatchesPage')}>
-        <Text style={styles.navIcon}>👥</Text>
+        <LinkIcon width={50} height={30} fill="#000" />
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate('ProfilePage')}>
-        <Text style={styles.navIcon}>👤</Text>
+        <ProfileIcon width={50} height={30} fill="#000" />
       </TouchableOpacity>
     </View>
   );
 };
 
-export default BottomNavigation;
 
 const styles = StyleSheet.create({
   navContainer: {
@@ -41,3 +47,5 @@ const styles = StyleSheet.create({
     color: '#2F4F4F',
   },
 });
+export default BottomNavigation;
+

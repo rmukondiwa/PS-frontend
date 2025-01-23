@@ -79,7 +79,7 @@ export default MatchesPage;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#A4D4AE', // Light blue-green background
+    backgroundColor: '#3ab2da', // Light blue-green background
   },
   title: {
     fontSize: 24,
@@ -108,7 +108,7 @@ const styles = StyleSheet.create({
   cardTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#2C88D9', // Match the blue theme
+    color: '#15789A', // Match the blue theme
     marginBottom: 10,
   },
   cardText: {
